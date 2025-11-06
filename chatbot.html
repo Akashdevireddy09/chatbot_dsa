@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DSA Instructor Bot</title>
+    
+    <!-- Load Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Use Inter font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Load a library for Markdown (to render code blocks) -->
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+
+    <!-- Link to your custom stylesheet -->
+    <link rel="stylesheet" href="chatbot.css">
+</head>
+<body class="bg-gray-900 text-gray-100 flex items-center justify-center min-h-screen p-4">
+
+    <div class="flex flex-col w-full max-w-2xl h-[80vh] bg-gray-800 rounded-lg shadow-2xl overflow-hidden">
+        
+        <!-- Header -->
+        <header class="bg-gray-700 p-4 shadow-md">
+            <h1 class="text-xl font-bold text-center text-white">DSA Instructor Bot 🤖</h1>
+            <p class="text-center text-sm text-gray-300">Your personal Data Structures & Algorithms assistant</p>
+        </header>
+        
+        <!-- Chat Window -->
+        <main id="chat-window" class="flex-1 p-4 overflow-y-auto space-y-4">
+            <!-- Initial bot message -->
+            <div class="chat-message bot">
+                <div class="bg-indigo-600 text-white p-3 rounded-lg shadow-md max-w-xs sm:max-w-md" style="width: fit-content;">
+                    <p>Hello! I'm here to help with your Data Structures and Algorithms questions. Ask me anything about DSA!</p>
+                </div>
+            </div>
+            <!-- Chat messages will be appended here -->
+        </main>
+
+        <!-- Typing Indicator -->
+        <div id="typing-indicator" class="p-4 text-sm text-gray-400" style="display: none;">
+            <div class="flex items-center space-x-2">
+                <div class="w-2 h-2 bg-gray-400 rounded-full animate-pulse" style="animation-delay: 0s;"></div>
+                <div class="w-2 h-2 bg-gray-400 rounded-full animate-pulse" style="animation-delay: 0.2s;"></div>
+                <div class="w-2 h-2 bg-gray-400 rounded-full animate-pulse" style="animation-delay: 0.4s;"></div>
+                <span>Assistant is typing...</span>
+            </div>
+        </div>
+        
+        <!-- Input Area -->
+        <footer class="p-4 bg-gray-700">
+            <div class="flex space-x-3">
+                <input 
+                    type="text" 
+                    id="user-input" 
+                    placeholder="Ask a DSA question..." 
+                    class="flex-1 p-3 bg-gray-800 border border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 text-white"
+                >
+                <button 
+                    id="send-button"
+                    class="bg-indigo-600 text-white px-5 py-3 rounded-lg font-semibold hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 focus:ring-offset-gray-800 transition-colors duration-200"
+                >
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 h-5">
+                        <path d="M3.105 3.105a1.5 1.5 0 011.995-.44l11.54 5.77a1.5 1.5 0 010 2.67l-11.54 5.77a1.5 1.5 0 01-2.435-1.33L4.267 10 2.67 8.41a1.5 1.5 0 01.435-2.23z" />
+                    </svg>
+                </button>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Link to your JavaScript file -->
+    <!-- 'defer' ensures the script runs after the HTML is parsed -->
+    <script src="chatbot.js" defer></script>
+</body>
+</html>
